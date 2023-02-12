@@ -4,7 +4,9 @@ Aplicatie ce permite inregistrarea galeriilor pe care utilizatorul doreste sa le
 
 ## Demo
 
-Demo here
+
+https://user-images.githubusercontent.com/79644230/218325779-2e84a5d9-a5b5-46e2-933e-7ef0abc282df.mov
+
 
 ## Cerinte
 
