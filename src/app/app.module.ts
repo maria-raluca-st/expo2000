@@ -7,7 +7,6 @@ import { AddExpoPageComponent } from './pages/add-expo-page/add-expo-page.compon
 import { AllExposPageComponent } from './pages/all-expos-page/all-expos-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
-import { CurrentExposPageComponent } from './pages/current-expos-page/current-expos-page.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
@@ -27,7 +26,6 @@ import { MatNativeDateModule } from '@angular/material/core';
     AllExposPageComponent,
     LoginPageComponent,
     SignupPageComponent,
-    CurrentExposPageComponent,
     NavigationBarComponent,
     ReminderAlertComponent,
    
@@ -36,9 +34,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     BrowserModule,
     AppRoutingModule,
    // provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth()),
-    provideDatabase(() => getDatabase()),
-    provideFirestore(() => getFirestore()),
+   // provideAuth(() => getAuth()),
+   // provideDatabase(() => getDatabase()),
+   // provideFirestore(() => getFirestore()),
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,

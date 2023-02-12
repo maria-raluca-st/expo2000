@@ -4,7 +4,6 @@ import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DateAdapter } from '@angular/material/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'all-expos-page',
@@ -12,7 +11,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./all-expos-page.component.scss'],
 })
 export class AllExposPageComponent implements OnInit {
-  editExpoForm!: FormGroup;
   allExpos!: expo[];
   sortedExpos!: expo[];
   nameExpo!: string;
@@ -21,7 +19,6 @@ export class AllExposPageComponent implements OnInit {
   dateExpo!: Date;
   todayDate!: string;
   viewExpo!: expo;
-  editMode: boolean = false;
   viewMode: boolean = false;
   noExposArt!: number;
   noExposPhoto!: number;
@@ -32,20 +29,12 @@ export class AllExposPageComponent implements OnInit {
     private db: AngularFireDatabase,
     private router: Router,
     private dateAdapter: DateAdapter<Date>,
-    private snackBar: MatSnackBar
   ) {
     this.dateAdapter.setLocale('en-GB'); //DD/MM/YYYY
     this.getStarted();
   }
 
   ngOnInit(): void {
-    //Form initialization
-    this.editExpoForm = new FormGroup({
-      expoName: new FormControl('', Validators.required),
-      expoDescription: new FormControl('', Validators.required),
-      label: new FormControl('', Validators.required),
-      expoDeadline: new FormControl('', Validators.required),
-    });
 
     //Get today date
     let today = new Date();
@@ -127,42 +116,6 @@ export class AllExposPageComponent implements OnInit {
     localStorage.removeItem('user');
   }
 
-  //Function for editing a expo
-  editExpo() {
-    if (this.editExpoForm.valid) {
-      let editExpoFormData = {
-        name: this.editExpoForm.value.expoName,
-        description: this.editExpoForm.value.expoDescription,
-        label: this.editExpoForm.value.label,
-        expiration_date:
-          this.editExpoForm.value.expoDeadline.getDate() +
-          '/' +
-          (this.editExpoForm.value.expoDeadline.getMonth() + 1) +
-          '/' +
-          this.editExpoForm.value.expoDeadline.getFullYear(),
-        completed: false,
-      };
-      let index = this.allExpos.findIndex((obj) => obj == this.viewExpo);
-      let username = localStorage.getItem('user');
-      this.db.object('users/' + username + '/expos/expos/' + index).update({
-        name: editExpoFormData.name,
-        description: editExpoFormData.description,
-        label: editExpoFormData.label,
-        expiration_date: editExpoFormData.expiration_date,
-        completed: false,
-      });
-      this.editExpoForm.reset({
-        label: '',
-      });
-      this.getStarted();
-      this.snackBar.open("expo edited successfully", "OK", { duration: 3000 });
-      this.editMode = false;
-    } else {
-      alert("Please complete all the fields");
-      return;
-
-    }
-  }
 
   //Function to check if the expo is not finished
   notExpired(date: string) {
@@ -189,7 +142,6 @@ export class AllExposPageComponent implements OnInit {
       this.getStarted();
 
     }
-    this.snackBar.open("Congratulations! You visited the gallery!", "Yey!", { duration: 3000 });
   }
 
   //Function to uncomplete a expo
@@ -213,7 +165,7 @@ export class AllExposPageComponent implements OnInit {
       .object('users/' + username + '/expos')
       .update({ expos: newexpoArray });
     this.getStarted();
-    this.snackBar.open("One less expo to worry about...", "Nice", { duration: 3000 });
+  
   }
 
   //Function to go to Add expo page
@@ -227,32 +179,15 @@ export class AllExposPageComponent implements OnInit {
     this.viewMode = true;
   }
 
-  //Function to go to expo edit mode, where the form will be already completed with current data
-  goEditMode() {
-    this.editMode = true;
-    this.viewMode = false;
-    let expoDate = this.viewExpo.expiration_date.split("/");
-    let formDate = new Date(parseInt(expoDate[2]), parseInt(expoDate[1])-1, parseInt(expoDate[0]));
-    console.log(this.viewExpo.expiration_date, expoDate, formDate);
-    this.editExpoForm = new FormGroup({
-      expoName: new FormControl(this.viewExpo.name, Validators.required),
-      expoDescription: new FormControl(this.viewExpo.description, Validators.required),
-      label: new FormControl(this.viewExpo.label, Validators.required),
-      expoDeadline: new FormControl(formDate, Validators.required),
-    });
-
-    console.log(this.editExpoForm.value);
-  }
-
   //Function to return to view mode from edit mode
   returnViewMode() {
-    this.editMode = false;
+
     this.viewMode = true;
   }
 
   //Function to return to main page from view mode
   returnAllExposPage() {
-    this.editMode = false;
+
     this.viewMode = false;
   }
 }

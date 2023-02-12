@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-expo-page',
@@ -19,7 +18,7 @@ export class AddExpoPageComponent implements OnInit {
   todayDate!: string;
   noTodayExpos!: number;
 
-  constructor(private db: AngularFireDatabase, private snackBar: MatSnackBar) { this.getStarted(); }
+  constructor(private db: AngularFireDatabase) { this.getStarted(); }
 
   ngOnInit(): void {
     //Form initialization
@@ -71,7 +70,6 @@ export class AddExpoPageComponent implements OnInit {
         }
       );
       this.getStarted();
-      this.snackBar.open("Expo added", "OK", {duration: 3000});
     } else {
       return;
     }

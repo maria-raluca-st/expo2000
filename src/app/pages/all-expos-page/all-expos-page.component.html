@@ -1,7 +1,7 @@
 <div class="container">
     <reminder-alert [remainingExpos]="noExposArt"></reminder-alert>
     <navigation-bar></navigation-bar>
-    <div class="lists-container" *ngIf="!editMode && !viewMode">
+    <div class="lists-container" *ngIf="!viewMode">
       <div class="lists">
         <div class="expo-list">
           <!-- Art!!!!!!!!!!!!! -->
@@ -530,111 +530,12 @@
                 </div>
               </div>
               <div class="view-buttons-container">
-                <button class="first-button" (click)="goEditMode()">
-                  <img src="../../../assets/icons/edit-icon.png" />
-                  Edit
-                </button>
+                
                 <button class="second-button" (click)="returnAllExposPage()">
                   Back
                 </button>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Edit Expo Details -->
-    <div class="edit-container" *ngIf="editMode">
-      <div class="first-container">
-        <div class="second-container">
-          <div>
-            <form
-              class="content-container"
-              id="edit-expo-form"
-              [formGroup]="editExpoForm"
-              (ngSubmit)="editExpo()"
-            >
-              <div class="left-section">
-                <!-- field for expo title -->
-                <div class="field">
-                  <div class="view-title">
-                    <div class="image">
-                      <img src="../../../assets/icons/title-icon.png" />
-                    </div>
-                    <span class="title-text">Name</span>
-                  </div>
-                  <input
-                    maxlength="20"
-                    class="edit-input"
-                    formControlName="expoName"
-                    placeholder="Write here..."
-                  />
-                </div>
-                <!-- field for expo description -->
-                <div class="field">
-                  <div class="view-title">
-                    <div class="image">
-                      <img src="../../../assets/icons/info-icon.png" />
-                    </div>
-                    <span class="title-text">Description</span>
-                  </div>
-                  <textarea
-                    formControlName="expoDescription"
-                    placeholder="Write here..."
-                    rows="4"
-                    cols="50"
-                    class="text-area"
-                    >{{ viewExpo.description }}</textarea
-                  >
-                </div>
-              </div>
-              <div class="right-section">
-                <!-- field for expo label -->
-                <div class="field">
-                  <div class="view-title">
-                    <div class="image">
-                      <img src="../../../assets/icons/label-icon.png" />
-                    </div>
-                    <span class="title-text">Label</span>
-                  </div>
-                  <select class="edit-input" formControlName="label">
-                    <option value="" disabled selected hidden>Label</option>
-                    <option value="art">Art</option>
-                    <option value="photo">Photography</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-                <!-- field for done date -->
-                <div class="field">
-                  <div class="view-title">
-                    <div class="image">
-                      <img src="../../../assets/icons/date-icon.png" />
-                    </div>
-                    <span class="title-text">Done Date</span>
-                  </div>
-                  <div class="date">
-                    <input
-                      class="edit-input"
-                      matInput
-                      [matDatepicker]="picker"
-                      formControlName="expoDeadline"
-                      placeholder="Date"
-                    />
-                    <mat-datepicker-toggle
-                      matIconSuffix
-                      [for]="picker"
-                    ></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
-                  </div>
-                </div>
-                <div class="view-buttons-container margin">
-                  <button type="submit" class="first-button">Save</button>
-                  <button class="second-button" (click)="returnViewMode()">
-                    Back
-                  </button>
-                </div>
-              </div>
-            </form>
           </div>
         </div>
       </div>

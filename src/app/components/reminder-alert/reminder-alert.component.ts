@@ -22,7 +22,7 @@ export class ReminderAlertComponent implements OnInit {
           alert(
             "You can visit " +
               this.remainingExpos +
-              'expos that end today!'
+              ' today!'
           );
         }
       }
