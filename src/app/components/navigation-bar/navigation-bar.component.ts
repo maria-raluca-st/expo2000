@@ -32,9 +32,9 @@ export class NavigationBarComponent implements OnInit {
     let names = this.profileName.split(" ");
 
     if (names.length > 1) {
-      this.avatarURL = "https://ui-avatars.com/api/?name=" + names[0] + "+" + names[names.length - 1] + "&background=6112E1&color=fff";
+      this.avatarURL = "https://ui-avatars.com/api/?name=" + names[0] + "+" + names[names.length - 1] + "&background=245e34&color=fff";
     } else {
-      this.avatarURL = "https://ui-avatars.com/api/?name=" + names[0] + "&background=6112E1&color=fff&uppercase=false";
+      this.avatarURL = "https://ui-avatars.com/api/?name=" + names[0] + "&background=245e34&uppercase=false";
     }
     }
   }

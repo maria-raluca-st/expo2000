@@ -78,7 +78,7 @@ input:autofill {
 }
 
 button {
-  background-color: $color-purple;
+  background-color: $color-green;
   width: 400px;
   border: none;
   color: $color-white;
@@ -91,11 +91,11 @@ button {
 }
 
 button:hover {
-  background-color: $color-light-purple;
+  background-color: $color-light-green;
 }
 
 .link-text {
-  color: $color-purple;
+  color: $color-green;
   text-decoration: underline;
   cursor: pointer;
 }

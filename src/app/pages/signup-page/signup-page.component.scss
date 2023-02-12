@@ -80,7 +80,7 @@ select {
 }
 
 button {
-  background-color: $color-purple;
+  background-color: $color-green;
   border-radius: 10px;
   border: none;
   font-size: 20px;
@@ -94,11 +94,11 @@ button {
 }
 
 button:hover {
-  background-color: $color-light-purple;
+  background-color: $color-light-green;
 }
 
 .link-text {
-  color: $color-purple;
+  color: $color-green;
   text-decoration: underline;
   cursor: pointer;
 }

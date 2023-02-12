@@ -36,13 +36,7 @@
 }
 
 .expo-list {
-  background: linear-gradient(
-    180deg,
-    #6112e1 0%,
-    rgba(18, 225, 188, 0.636755) 99.98%,
-    rgba(225, 93, 18, 0.54) 99.99%,
-    #12e1bc 100%
-  );
+  background: $color-green;
   border-radius: 10px;
   width: 30%;
   height: 35rem;
@@ -114,7 +108,7 @@ button {
 }
 
 .expo-container {
-  background: linear-gradient(180deg, #d9d9d9 0%, rgba(217, 217, 217, 0) 100%);
+  background: $color-white;
   border-radius: 10px;
   padding-top: 5px;
   margin: auto 13px auto 13px;
@@ -141,13 +135,7 @@ button {
 }
 
 .first-container {
-  background: linear-gradient(
-    180deg,
-    #6112e1 0%,
-    rgba(18, 225, 188, 0.636755) 99.98%,
-    rgba(225, 93, 18, 0.54) 99.99%,
-    #12e1bc 100%
-  );
+  background:$color-light-green;
   border-radius: 10px;
   width: 80%;
   height: auto;
@@ -156,7 +144,6 @@ button {
 }
 
 .second-container {
-  background: linear-gradient(180deg, #d9d9d9 0%, rgba(217, 217, 217, 0) 100%);
   border-radius: 10px;
   padding: 15px 40px 15px 40px;
   margin: 0 30px auto 30px;
@@ -227,7 +214,7 @@ button {
 }
 
 .first-button {
-  background-color: $color-purple;
+  background-color: $color-green;
   color: $color-white;
   font-size: 25px;
   padding: 0.5rem;
@@ -235,24 +222,24 @@ button {
 }
 
 .first-button:hover {
-  background-color: $color-light-purple;
+  background-color: $color-light-green;
 }
 
 .second-button {
   background-color: $color-white;
-  border: 2px solid $color-purple;
+  border: 2px solid $color-green;
   font-size: 25px;
   padding: 0.5rem;
   transition: 0.5s;
 }
 
 .second-button:hover {
-  background-color: $color-purple;
+  background-color: $color-green;
   color: $color-white;
 }
 
 .desc {
-  border: 1px solid $color-purple;
+  border: 1px solid $color-green;
   border-radius: 10px;
   font-size: 20px;
   margin-top: 1rem;
@@ -312,7 +299,7 @@ mat-datepicker-toggle {
 
 textarea {
   margin-top: 1rem;
-  border: 2px solid $color-purple;
+  border: 2px solid $color-green;
   border-radius: 10px;
   padding: 20px;
   font-family: "Space Mono", monospace;
