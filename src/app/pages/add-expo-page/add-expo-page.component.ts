@@ -94,7 +94,7 @@ export class AddExpoPageComponent implements OnInit {
     //Check how many expos are done today
     for(let i=0; i<this.allExpos.length; i++)
     {
-      if(this.allExpos[i].expiration_date === this.todayDate && !this.allExpos[i].completed)
+      if(this.allExpos[i].expiration_date > this.todayDate && !this.allExpos[i].completed)
         this.noTodayExpos=this.noTodayExpos+1;
     }
 

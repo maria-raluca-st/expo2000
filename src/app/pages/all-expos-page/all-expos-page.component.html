@@ -1,5 +1,5 @@
 <div class="container">
-    <reminder-alert [remainingExpos]="noExposArt"></reminder-alert>
+    <reminder-alert [remainingExpos]="noExposArt + noExposPhoto + noExposOther"></reminder-alert>
     <navigation-bar></navigation-bar>
     <div class="lists-container" *ngIf="!viewMode">
       <div class="lists">

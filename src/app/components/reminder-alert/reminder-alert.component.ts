@@ -17,12 +17,12 @@ export class ReminderAlertComponent implements OnInit {
   generateAlerts() {
     setInterval( () => {
       var date = new Date();
-      if (date.getHours() == 10 && date.getMinutes() == 0) {
+      if (date.getHours() == 18 && date.getMinutes() == 52) {
         if(this.remainingExpos>0){
           alert(
-            "You can visit " +
+            "You could visit " +
               this.remainingExpos +
-              ' today!'
+              ' galleries today!'
           );
         }
       }
