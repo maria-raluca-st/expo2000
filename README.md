@@ -4,7 +4,7 @@ Aplicatie ce permite inregistrarea galeriilor pe care utilizatorul doreste sa le
 
 ## Demo
 
-Demo here[www.google.com]
+Demo here
 
 ## Cerinte
 
