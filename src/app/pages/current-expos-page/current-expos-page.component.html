@@ -1,1 +1,658 @@
-<p>current-expos-page works!</p>
+<div class="container">
+    <navigation-bar></navigation-bar>
+  
+    <div class="lists-container" *ngIf="!editMode && !viewMode">
+      <div class="lists">
+        <div class="expo-list">
+          <!-- Art!!!!!!!!!!!!! -->
+          <p class="title">Art</p>
+          <div class="expo-container">
+            <!-- red -->
+            <div *ngFor="let expo of allExpos">
+              <div
+                class="expo-card"
+                *ngIf="
+                  expo.label == 'art' &&
+                  expo.expiration_date === todayDate &&
+                  !notExpired(expo.expiration_date) &&
+                  !expo.completed
+                "
+              >
+                <p class="expo-name">{{ expo.name }}</p>
+                <div class="second-row">
+                  <span class="due-date red"
+                    >Done date:
+                    <span class="date-color red">{{
+                      expo.expiration_date
+                    }}</span></span
+                  >
+                  <img
+                    (click)="goToViewMode(expo)"
+                    class="eye-icon"
+                    style="cursor: pointer"
+                    src="../../../assets/icons/eye-icon.png"
+                  />
+                </div>
+                <div class="expo-buttons">
+                  <button
+                    class="completed-button"
+                    *ngIf="!expo.completed"
+                    (click)="MarkCompleted(expo)"
+                  >
+                    <img src="../../../assets/icons/done-icon.png" />
+                    Completed
+                  </button>
+                  <button
+                    class="unfinished-button"
+                    *ngIf="expo.completed"
+                    (click)="MarkNotCompleted(expo)"
+                  >
+                    <img src="../../../assets/icons/x-icon.png" />
+                    Unfinished
+                  </button>
+                  <button class="delete-button" (click)="DeleteExpo(expo)">
+                    <img src="../../../assets/icons/bin-icon.png" />
+                    Delete
+                  </button>
+                </div>
+              </div>
+              <!-- green -->
+              <div
+                class="expo-card"
+                *ngIf="
+                  expo.label == 'art' &&
+                  expo.expiration_date === todayDate &&
+                  notExpired(expo.expiration_date) &&
+                  expo.completed
+                "
+              >
+                <p class="expo-name green">{{ expo.name }}</p>
+                <div class="second-row">
+                  <span class="due-date green"
+                    >Due date:
+                    <span class="date-color green">{{
+                      expo.expiration_date
+                    }}</span></span
+                  >
+                  <img
+                    (click)="goToViewMode(expo)"
+                    class="eye-icon"
+                    style="cursor: pointer"
+                    src="../../../assets/icons/eye-icon.png"
+                  />
+                </div>
+                <div class="expo-buttons">
+                  <button
+                    class="completed-button"
+                    *ngIf="!expo.completed"
+                    (click)="MarkCompleted(expo)"
+                  >
+                    <img src="../../../assets/icons/done-icon.png" />
+                    Completed
+                  </button>
+                  <button
+                    class="unfinished-button"
+                    *ngIf="expo.completed"
+                    (click)="MarkNotCompleted(expo)"
+                  >
+                    <img src="../../../assets/icons/x-icon.png" />
+                    Unfinished
+                  </button>
+                  <button class="delete-button" (click)="DeleteExpo(expo)">
+                    <img src="../../../assets/icons/bin-icon.png" />
+                    Delete
+                  </button>
+                </div>
+              </div>
+              <div
+                class="expo-card"
+                *ngIf="
+                  expo.label == 'art' &&
+                  expo.expiration_date === todayDate &&
+                  notExpired(expo.expiration_date) &&
+                  !expo.completed
+                "
+              >
+                <p class="expo-name">{{ expo.name }}</p>
+                <div class="second-row">
+                  <span class="due-date"
+                    >Done date:
+                    <span class="date-color">{{
+                      expo.expiration_date
+                    }}</span></span
+                  >
+                  <img
+                    (click)="goToViewMode(expo)"
+                    class="eye-icon"
+                    style="cursor: pointer"
+                    src="../../../assets/icons/eye-icon.png"
+                  />
+                </div>
+                <div class="expo-buttons">
+                  <button
+                    class="completed-button"
+                    *ngIf="!expo.completed"
+                    (click)="MarkCompleted(expo)"
+                  >
+                    <img src="../../../assets/icons/done-icon.png" />
+                    Completed
+                  </button>
+                  <button
+                    class="unfinished-button"
+                    *ngIf="expo.completed"
+                    (click)="MarkNotCompleted(expo)"
+                  >
+                    <img src="../../../assets/icons/x-icon.png" />
+                    Unfinished
+                  </button>
+                  <button class="delete-button" (click)="DeleteExpo(expo)">
+                    <img src="../../../assets/icons/bin-icon.png" />
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              *ngIf="noTodayExposArt == 0"
+              class="no-expos-text art-zero-expos"
+            >
+            Looks like you have no art galleries to visit today. Do you plan on visiting one?
+              <img
+                (click)="goToAddExpo()"
+                src="../../../assets/icons/plus-icon.png"
+                class="add-icon art-expo-button"
+              />
+            </div>
+          </div>
+        </div>
+  
+        <div class="expo-list">
+          <!-- Photo!!!!!!!!!!!!! -->
+          <p class="title">Photo</p>
+          <div class="expo-container">
+            <div *ngFor="let expo of allExpos">
+              <div
+                class="expo-card"
+                *ngIf="
+                  expo.label == 'photo' &&
+                  expo.expiration_date === todayDate &&
+                  !notExpired(expo.expiration_date) &&
+                  !expo.completed
+                "
+              >
+                <p class="expo-name">{{ expo.name }}</p>
+                <div class="second-row">
+                  <span class="due-date red"
+                    >Due date:
+                    <span class="date-color red">{{
+                      expo.expiration_date
+                    }}</span></span
+                  >
+                  <img
+                    (click)="goToViewMode(expo)"
+                    class="eye-icon"
+                    style="cursor: pointer"
+                    src="../../../assets/icons/eye-icon.png"
+                  />
+                </div>
+                <div class="expo-buttons">
+                  <button
+                    class="completed-button"
+                    *ngIf="!expo.completed"
+                    (click)="MarkCompleted(expo)"
+                  >
+                    <img src="../../../assets/icons/done-icon.png" />
+                    Visited
+                  </button>
+                  <button
+                    class="unfinished-button"
+                    *ngIf="expo.completed"
+                    (click)="MarkNotCompleted(expo)"
+                  >
+                    <img src="../../../assets/icons/x-icon.png" />
+                    Unvisited
+                  </button>
+                  <button class="delete-button" (click)="DeleteExpo(expo)">
+                    <img src="../../../assets/icons/bin-icon.png" />
+                    Delete
+                  </button>
+                </div>
+              </div>
+              <!-- completed -->
+              <div
+                class="expo-card"
+                *ngIf="
+                  expo.label == 'photo' &&
+                  expo.expiration_date === todayDate &&
+                  notExpired(expo.expiration_date) &&
+                  expo.completed
+                "
+              >
+                <p class="expo-name green">{{ expo.name }}</p>
+                <div class="second-row">
+                  <span class="due-date green"
+                    >Due date:
+                    <span class="date-color green">{{
+                      expo.expiration_date
+                    }}</span></span
+                  >
+                  <img
+                    (click)="goToViewMode(expo)"
+                    class="eye-icon"
+                    style="cursor: pointer"
+                    src="../../../assets/icons/eye-icon.png"
+                  />
+                </div>
+  
+                <div class="expo-buttons">
+                  <button
+                    class="completed-button"
+                    *ngIf="!expo.completed"
+                    (click)="MarkCompleted(expo)"
+                  >
+                    <img src="../../../assets/icons/done-icon.png" />
+                    Visited
+                  </button>
+                  <button
+                    class="unfinished-button"
+                    *ngIf="expo.completed"
+                    (click)="MarkNotCompleted(expo)"
+                  >
+                    <img src="../../../assets/icons/x-icon.png" />
+                    Unvisited
+                  </button>
+                  <button class="delete-button" (click)="DeleteExpo(expo)">
+                    <img src="../../../assets/icons/bin-icon.png" />
+                    Delete
+                  </button>
+                </div>
+              </div>
+              <div
+                class="expo-card"
+                *ngIf="
+                  expo.label == 'photo' &&
+                  expo.expiration_date === todayDate &&
+                  notExpired(expo.expiration_date) &&
+                  !expo.completed
+                "
+              >
+                <p class="expo-name">{{ expo.name }}</p>
+                <div class="second-row">
+                  <span class="due-date"
+                    >Due date:
+                    <span class="date-color">{{
+                      expo.expiration_date
+                    }}</span></span
+                  >
+                  <img
+                    (click)="goToViewMode(expo)"
+                    class="eye-icon"
+                    style="cursor: pointer"
+                    src="../../../assets/icons/eye-icon.png"
+                  />
+                </div>
+                <div class="expo-buttons">
+                  <button
+                    class="completed-button"
+                    *ngIf="!expo.completed"
+                    (click)="MarkCompleted(expo)"
+                  >
+                    <img src="../../../assets/icons/done-icon.png" />
+                    Visited
+                  </button>
+                  <button
+                    class="unfinished-button"
+                    *ngIf="expo.completed"
+                    (click)="MarkNotCompleted(expo)"
+                  >
+                    <img src="../../../assets/icons/x-icon.png" />
+                    Unvisited
+                  </button>
+                  <button class="delete-button" (click)="DeleteExpo(expo)">
+                    <img src="../../../assets/icons/bin-icon.png" />
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              *ngIf="noTodayExposPhoto == 0"
+              class="no-expos-text photo-zero-expos"
+            >
+            Looks like you have no photo galleries to visit today. Do you plan on visiting one?
+              <img
+                (click)="goToAddExpo()"
+                src="../../../assets/icons/plus-icon.png"
+                class="add-icon photo-expo-button"
+              />
+            </div>
+          </div>
+        </div>
+  
+        <div class="expo-list">
+          <!-- Other!!!!!!!!!!!!! -->
+          <p class="title">Other</p>
+          <div class="expo-container">
+            <div *ngFor="let expo of allExpos">
+              <!-- red -->
+              <div
+                class="expo-card"
+                *ngIf="
+                  expo.label == 'other' &&
+                  expo.expiration_date === todayDate &&
+                  !notExpired(expo.expiration_date) &&
+                  !expo.completed
+                "
+              >
+                <p class="expo-name">{{ expo.name }}</p>
+                <div class="second-row">
+                  <span class="due-date red"
+                    >Done date:
+                    <span class="date-color red">{{
+                      expo.expiration_date
+                    }}</span></span
+                  >
+                  <img
+                    (click)="goToViewMode(expo)"
+                    class="eye-icon"
+                    style="cursor: pointer"
+                    src="../../../assets/icons/eye-icon.png"
+                  />
+                </div>
+                <div class="expo-buttons">
+                  <button
+                    class="completed-button"
+                    *ngIf="!expo.completed"
+                    (click)="MarkCompleted(expo)"
+                  >
+                    <img src="../../../assets/icons/done-icon.png" />
+                    Completed
+                  </button>
+                  <button
+                    class="unfinished-button"
+                    *ngIf="expo.completed"
+                    (click)="MarkNotCompleted(expo)"
+                  >
+                    <img src="../../../assets/icons/x-icon.png" />
+                    Unfinished
+                  </button>
+                  <button class="delete-button" (click)="DeleteExpo(expo)">
+                    <img src="../../../assets/icons/bin-icon.png" />
+                    Delete
+                  </button>
+                </div>
+              </div>
+              <!-- green -->
+              <div
+                class="expo-card"
+                *ngIf="
+                  expo.label == 'other' &&
+                  expo.expiration_date === todayDate &&
+                  notExpired(expo.expiration_date) &&
+                  expo.completed
+                "
+              >
+                <p class="expo-name green">{{ expo.name }}</p>
+                <div class="second-row">
+                  <span class="due-date green"
+                    >Due date:
+                    <span class="date-color green">{{
+                      expo.expiration_date
+                    }}</span></span
+                  >
+                  <img
+                    (click)="goToViewMode(expo)"
+                    class="eye-icon"
+                    style="cursor: pointer"
+                    src="../../../assets/icons/eye-icon.png"
+                  />
+                </div>
+                <div class="expo-buttons">
+                  <button
+                    class="completed-button"
+                    *ngIf="!expo.completed"
+                    (click)="MarkCompleted(expo)"
+                  >
+                    <img src="../../../assets/icons/done-icon.png" />
+                    Completed
+                  </button>
+                  <button
+                    class="unfinished-button"
+                    *ngIf="expo.completed"
+                    (click)="MarkNotCompleted(expo)"
+                  >
+                    <img src="../../../assets/icons/x-icon.png" />
+                    Unfinished
+                  </button>
+                  <button class="delete-button" (click)="DeleteExpo(expo)">
+                    <img src="../../../assets/icons/bin-icon.png" />
+                    Delete
+                  </button>
+                </div>
+              </div>
+              <div
+                class="expo-card"
+                *ngIf="
+                  expo.label == 'other' &&
+                  expo.expiration_date === todayDate &&
+                  notExpired(expo.expiration_date) &&
+                  !expo.completed
+                "
+              >
+                <p class="expo-name">{{ expo.name }}</p>
+  
+                <div class="second-row">
+                  <span class="due-date"
+                    >Due date:
+                    <span class="date-color">{{
+                      expo.expiration_date
+                    }}</span></span
+                  >
+                  <img
+                    (click)="goToViewMode(expo)"
+                    class="eye-icon"
+                    style="cursor: pointer"
+                    src="../../../assets/icons/eye-icon.png"
+                  />
+                </div>
+                <div class="expo-buttons">
+                  <button
+                    class="completed-button"
+                    *ngIf="!expo.completed"
+                    (click)="MarkCompleted(expo)"
+                  >
+                    <img src="../../../assets/icons/done-icon.png" />
+                    Visited
+                  </button>
+                  <button
+                    class="unfinished-button"
+                    *ngIf="expo.completed"
+                    (click)="MarkNotCompleted(expo)"
+                  >
+                    <img src="../../../assets/icons/x-icon.png" />
+                    Unvisited
+                  </button>
+                  <button class="delete-button" (click)="DeleteExpo(expo)">
+                    <img src="../../../assets/icons/bin-icon.png" />
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              *ngIf="noTodayExposOther == 0"
+              class="no-expos-text other-zero-expos"
+            >
+            Looks like you have no other galleries to visit today. Do you plan on visiting one?
+              <img
+                (click)="goToAddExpo()"
+                src="../../../assets/icons/plus-icon.png"
+                class="add-icon other-expo-button"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- View expo Details -->
+    <div class="view-container" *ngIf="viewMode">
+      <div class="first-container">
+        <div class="second-container">
+          <div class="content-container">
+            <div class="left-section">
+              <div class="field">
+                <div class="view-title">
+                  <div class="image">
+                    <img src="../../../assets/icons/title-icon.png" />
+                  </div>
+                  <span class="title-text">Name</span>
+                </div>
+                <p class="expo-data name">{{ viewExpo.name }}</p>
+              </div>
+  
+              <div class="field">
+                <div class="view-title">
+                  <div class="image">
+                    <img src="../../../assets/icons/info-icon.png" />
+                  </div>
+                  <span class="title-text">Description</span>
+                </div>
+  
+                <textarea rows="4" cols="50" readonly>{{
+                  viewExpo.description
+                }}</textarea>
+              </div>
+            </div>
+            <div class="right-section">
+              <div class="field">
+                <div class="view-title">
+                  <div class="image">
+                    <img src="../../../assets/icons/label-icon.png" />
+                  </div>
+                  <span class="title-text">Label</span>
+                </div>
+                <p class="expo-data">{{ viewExpo.label }}</p>
+              </div>
+  
+              <div class="field">
+                <div class="view-title">
+                  <div class="image">
+                    <img src="../../../assets/icons/date-icon.png" />
+                  </div>
+                  <span class="title-text">Date</span>
+                </div>
+                <div class="date">
+                  <p class="expo-data">{{ viewExpo.expiration_date }}</p>
+                </div>
+              </div>
+              <div class="view-buttons-container">
+                <button class="first-button" (click)="goEditMode()">
+                  <img src="../../../assets/icons/edit-icon.png" />
+                  Edit
+                </button>
+                <button class="second-button" (click)="returnAllExposPage()">
+                  Back
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Edit expo Details -->
+    <div class="edit-container" *ngIf="editMode">
+      <div class="first-container">
+        <div class="second-container">
+          <div>
+            <form
+              class="content-container"
+              id="edit-expo-form"
+              [formGroup]="editExpoForm"
+              (ngSubmit)="editExpo()"
+            >
+              <div class="left-section">
+                <!-- field for expo title -->
+                <div class="field">
+                  <div class="view-title">
+                    <div class="image">
+                      <img src="../../../assets/icons/title-icon.png" />
+                    </div>
+                    <span class="title-text">Name</span>
+                  </div>
+                  <input
+                    maxlength="20"
+                    class="edit-input"
+                    formControlName="expoName"
+                    placeholder="Write here..."
+                  />
+                </div>
+                <!-- field for expo description -->
+                <div class="field">
+                  <div class="view-title">
+                    <div class="image">
+                      <img src="../../../assets/icons/info-icon.png" />
+                    </div>
+                    <span class="title-text">Description</span>
+                  </div>
+                  <textarea
+                    formControlName="expoDescription"
+                    placeholder="Write here..."
+                    rows="4"
+                    cols="50"
+                    class="text-area"
+                    >{{ viewExpo.description }}</textarea
+                  >
+                </div>
+              </div>
+              <div class="right-section">
+                <!-- field for expo label -->
+                <div class="field">
+                  <div class="view-title">
+                    <div class="image">
+                      <img src="../../../assets/icons/label-icon.png" />
+                    </div>
+                    <span class="title-text">Label</span>
+                  </div>
+                  <select class="edit-input" formControlName="label">
+                    <option value="" disabled selected hidden>Label</option>
+                    <option value="art">Art</option>
+                    <option value="photo">Photo</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <!-- field for due date -->
+                <div class="field">
+                  <div class="view-title">
+                    <div class="image">
+                      <img src="../../../assets/icons/date-icon.png" />
+                    </div>
+                    <span class="title-text">Date</span>
+                  </div>
+                  <div class="date">
+                    <input
+                      class="edit-input"
+                      matInput
+                      [matDatepicker]="picker"
+                      formControlName="expoDeadline"
+                      placeholder="Date"
+                    />
+                    <mat-datepicker-toggle
+                      matIconSuffix
+                      [for]="picker"
+                    ></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </div>
+                </div>
+                <div class="view-buttons-container margin">
+                  <button type="submit" class="first-button">Save</button>
+                  <button class="second-button" (click)="returnViewMode()">
+                    Back
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

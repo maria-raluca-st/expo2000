@@ -1,1 +1,41 @@
-<p>navigation-bar works!</p>
+<div class="navbar">
+    <ul class="container">
+      <li class="nav-item" id="item-1">
+        <a
+          class="nav-link go-to-all-expos-page-navbar"
+          routerLinkActive="active"
+          [routerLink]="['/']"
+          (click)="goToAllExposPage()"
+          >All galleries Page</a
+        >
+        <hr />
+      </li>
+  
+      <li class="nav-item" id="item-2">
+        <a
+          class="nav-link go-to-today-expos-navbar"
+          routerLinkActive="active"
+          [routerLink]="['/current']"
+          (click)="goToCurrentExpos()"
+          >Current Expos</a
+        >
+        <hr />
+      </li>
+      <li class="nav-item" id="item-3">
+        <a
+          class="nav-link add-expo-navbar"
+          routerLinkActive="active"
+          [routerLink]="['/add']"
+          (click)="goToAddExpoPage()"
+          >Add Expo</a
+        >
+        <hr />
+      </li>
+      <li class="nav-item" id="item-4">
+        <button class="logout" (click)="logout()">Log out</button>
+      </li>
+      <li class="nav-item" id="item-5">
+        <img src="{{ avatarURL }}" class="avatar" />
+      </li>
+    </ul>
+  </div>

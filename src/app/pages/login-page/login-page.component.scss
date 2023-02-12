@@ -1,0 +1,152 @@
+@import "../../../styles/global-colors";
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Space+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+* {
+  font-family: "Space Mono", monospace;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  font-family: "Space Mono", monospace;
+}
+
+.left-side {
+  width: 40%;
+}
+
+.cover-image {
+  width: 100%;
+  height: 100%;
+}
+
+.right-side {
+  background: url("../../../assets/images/main-page-background.jpg") no-repeat
+    center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-image {
+  height: 200px;
+  padding-bottom: 4rem;
+  animation: 1.5s ease-out 0s 1 firstRender;
+}
+
+#login-form {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.red-text {
+  color: red;
+}
+
+input {
+  margin-bottom: 1.875rem;
+  font-family: "Roboto", sans-serif;
+  height: 2.5rem;
+  text-indent: 1.25rem;
+  background-color: $color-grey;
+  border: none;
+  color: #474747;
+  width: 400px;
+  border-radius: 10px;
+  padding: 10px 0px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+input::placeholder {
+  color: #474747;
+  font-family: "Roboto", sans-serif;
+  font-size: 22px;
+}
+
+input:autofill {
+  background: $color-grey; /* or any other */
+}
+
+button {
+  background-color: $color-purple;
+  width: 400px;
+  border: none;
+  color: $color-white;
+  transition: 0.2s;
+  cursor: pointer;
+  padding: 15px;
+  font-size: 20px;
+  animation: 1.5s ease-out 0s 1 firstRender;
+  border-radius: 10px;
+}
+
+button:hover {
+  background-color: $color-light-purple;
+}
+
+.link-text {
+  color: $color-purple;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+p {
+  color: $color-white;
+  font-size: 20px;
+  animation: 1.5s ease-out 0s 1 firstRender;
+}
+
+@media only screen and (max-width: 600px) {
+  .left-side {
+    display: none;
+  }
+
+  .right-side {
+    width: 100%;
+  }
+
+  input,
+  select,
+  button {
+    width: 300px;
+  }
+
+  .logo-image {
+    height: 7rem;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  form {
+    width: 100%!important;
+  }
+
+  input,
+  select,
+  button {
+    width: 80%;
+  }
+
+  p {
+    padding: 0 30px 0 30px;
+  }
+}
+
+@keyframes firstRender {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}

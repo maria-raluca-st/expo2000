@@ -1,1 +1,90 @@
-<p>add-expo-page works!</p>
+<div class="container">
+    <reminder-alert [remainingExpos]="noTodayExpos"></reminder-alert>
+    <navigation-bar></navigation-bar>
+    <div class="greater-container">
+      <div class="first-container">
+        <div class="second-container">
+          <div class="content-container">
+            <form
+              id="add-expo-form"
+              [formGroup]="addExpoForm"
+              (ngSubmit)="addExpo()"
+            >
+              <div class="left-section">
+                <div class="field">
+                  <div class="title">
+                    <div class="image">
+                      <img src="../../../assets/icons/title-icon.png" />
+                    </div>
+                    <span>Name</span>
+                  </div>
+                  <input
+                    class="name-input"
+                    maxlength="20"
+                    formControlName="expoName"
+                    placeholder="Write here..."
+                  />
+                </div>
+  
+                <div class="field">
+                  <div class="title">
+                    <div class="image">
+                      <img src="../../../assets/icons/info-icon.png" />
+                    </div>
+                    <span>Description</span>
+                  </div>
+                  <textarea
+                    formControlName="expoDescription"
+                    placeholder="Write here..."
+                    rows="4"
+                    cols="50"
+                    class="text-area"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="right-section">
+                <div class="field">
+                  <div class="title">
+                    <div class="image">
+                      <img src="../../../assets/icons/label-icon.png" />
+                    </div>
+                    <span>Label</span>
+                  </div>
+                  <select class="label-input" formControlName="label">
+                    <option value="" disabled selected hidden>Label</option>
+                    <option value="art">Art</option>
+
+                    <option value="photo">photo</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+  
+                <div class="field">
+                  <div class="title">
+                    <div class="image">
+                      <img src="../../../assets/icons/date-icon.png" />
+                    </div>
+                    <span>Date</span>
+                  </div>
+                  <div class="date">
+                    <input
+                      formControlName="expoDeadline"
+                      matInput
+                      [matDatepicker]="picker"
+                      placeholder="Date"
+                    />
+                    <mat-datepicker-toggle
+                      matIconSuffix
+                      [for]="picker"
+                    ></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </div>
+                </div>
+                <button class="save-expo-btn" type="submit">Save Expo</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,503 @@
+@import "../../../styles/global-colors";
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Space+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+.container {
+  background: url("../../../assets/images/main-page-background.jpg") no-repeat
+    center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: "Space Mono", monospace;
+}
+
+.edit-container,
+.view-container {
+  overflow: auto;
+  width: 100%;
+  height: calc(100% - 7rem - 2em);
+}
+
+.lists-container {
+  //margin: 0px 100px 0px 100px;
+  width: 80%;
+  padding: 0 10% 0 10%;
+  overflow: auto;
+}
+
+.lists {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.expo-list {
+  background: linear-gradient(
+    180deg,
+    #6112e1 0%,
+    rgba(18, 225, 188, 0.636755) 99.98%,
+    rgba(225, 93, 18, 0.54) 99.99%,
+    #12e1bc 100%
+  );
+  border-radius: 10px;
+  width: 30%;
+  height: 35rem;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 0rem;
+  position: sticky;
+}
+
+.expo-card {
+  background-color: $color-white;
+  margin: 1rem;
+  border-radius: 10px;
+  padding: 15px;
+  padding-top: 1px;
+}
+
+.expo-name {
+  font-size: 20px;
+  line-height: 1.5rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 100%;
+}
+
+.due-date {
+  font-family: "Roboto", sans-serif;
+}
+
+.date-color {
+  color: $color-medium-grey;
+}
+
+.expo-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+button {
+  font-family: "Space Mono", monospace;
+  border: none;
+  border-radius: 10px;
+  width: 47%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 20px 5px 20px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.completed-button {
+  background-color: $color-green;
+}
+
+.delete-button {
+  background-color: $color-light-red;
+}
+
+.second-row {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0.5rem;
+}
+
+.expo-container {
+  background: linear-gradient(180deg, #d9d9d9 0%, rgba(217, 217, 217, 0) 100%);
+  border-radius: 10px;
+  padding-top: 5px;
+  margin: auto 13px auto 13px;
+  height: 30rem;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.expo-container::-webkit-scrollbar {
+  display: none;
+}
+
+.unfinished-button {
+  background-color: $color-medium-grey;
+}
+
+.red {
+  color: $color-red;
+}
+
+.green {
+  color: $color-dark-green;
+}
+
+.first-container {
+  background: linear-gradient(
+    180deg,
+    #6112e1 0%,
+    rgba(18, 225, 188, 0.636755) 99.98%,
+    rgba(225, 93, 18, 0.54) 99.99%,
+    #12e1bc 100%
+  );
+  border-radius: 10px;
+  width: 80%;
+  height: auto;
+  margin: auto;
+  padding-top: 25px;
+}
+
+.second-container {
+  background: linear-gradient(180deg, #d9d9d9 0%, rgba(217, 217, 217, 0) 100%);
+  border-radius: 10px;
+  padding: 15px 40px 15px 40px;
+  margin: 0 30px auto 30px;
+  height: auto;
+}
+
+.content-container {
+  background-color: $color-white;
+  margin: 1rem;
+  border-radius: 10px;
+  padding: 30px 50px 30px 50px;
+  height: 85%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.view-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.left-section {
+  width: 40%;
+}
+
+.right-section {
+  width: 40%;
+}
+
+.field {
+  width: 100%;
+}
+
+.field:nth-child(even) {
+  margin-top: 30px;
+}
+
+.view-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 50px;
+}
+
+.image {
+  background-color: $color-grey;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 100%;
+}
+
+.title-text {
+  font-size: 30px;
+  margin-left: 20px;
+}
+
+.expo-data {
+  font-size: 40px;
+  line-height: 50px;
+}
+
+.view-buttons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.first-button {
+  background-color: $color-purple;
+  color: $color-white;
+  font-size: 25px;
+  padding: 0.5rem;
+  transition: 0.5s;
+}
+
+.first-button:hover {
+  background-color: $color-light-purple;
+}
+
+.second-button {
+  background-color: $color-white;
+  border: 2px solid $color-purple;
+  font-size: 25px;
+  padding: 0.5rem;
+  transition: 0.5s;
+}
+
+.second-button:hover {
+  background-color: $color-purple;
+  color: $color-white;
+}
+
+.desc {
+  border: 1px solid $color-purple;
+  border-radius: 10px;
+  font-size: 20px;
+  margin-top: 1rem;
+}
+
+.edit-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-input {
+  background-color: $color-grey;
+  border: none;
+  color: #474747;
+  width: 100%;
+  border-radius: 10px;
+  padding: 25px;
+  margin-top: 30px;
+  font-size: 22px;
+}
+
+.date {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+mat-datepicker-toggle {
+  background-color: $color-grey;
+  color: $color-black;
+  border-radius: 100%;
+  margin-left: 1rem;
+}
+
+.description {
+  height: 6rem;
+}
+
+.margin {
+  margin-top: 1.5rem;
+}
+
+.wordwrap {
+  white-space: pre-wrap; /* Webkit */
+  white-space: -moz-pre-wrap; /* Firefox */
+  white-space: -pre-wrap; /* Opera <7 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* IE */
+}
+
+.description-text {
+  max-height: 1rem;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+textarea {
+  margin-top: 1rem;
+  border: 2px solid $color-purple;
+  border-radius: 10px;
+  padding: 20px;
+  font-family: "Space Mono", monospace;
+  font-size: 22px;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  height: 120px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  resize: none;
+}
+
+textarea::-webkit-scrollbar {
+  display: none;
+}
+
+.text-area {
+  background-color: $color-grey;
+  color: #474747;
+  border: none;
+  font-family: "Roboto", sans-serif;
+}
+
+.name {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 27rem;
+}
+
+.no-expos-text {
+  height: 25%;
+  margin: auto;
+  text-align: center;
+  width: 90%;
+}
+
+.add-icon {
+  display: block;
+  margin: auto;
+  padding-top: 1rem;
+  cursor: pointer;
+}
+
+@media (max-width: 1300px) {
+  .lists {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 2rem;
+  }
+
+  .expo-list {
+    width: 48%;
+  }
+}
+
+@media (max-width: 900px) {
+  .expo-list {
+    width: 100%;
+  }
+
+  .random-message {
+    font-size: larger;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .content-container {
+    flex-direction: column;
+  }
+
+  .left-section {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .left-section input {
+    width: calc(100% - 50px);
+  }
+
+  .left-section textarea {
+    width: calc(100% - 40px);
+  }
+
+  .right-section {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .first-container {
+    padding-top: 12px;
+  }
+
+  .second-container {
+    padding: 7px 20px 7px 20px;
+    margin: 0 15px auto 15px;
+  }
+
+  .content-container {
+    margin: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  img {
+    height: 30px;
+    width: 30px;
+  }
+
+  .view-title span {
+    font-size: 25px;
+  }
+
+  .field p {
+    font-size: 25px;
+    margin-top: 10px;
+  }
+
+  .content-container {
+    padding: 30px 25px 30px 25px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  img {
+    height: 20px;
+    width: 20px;
+  }
+
+  .first-container {
+    padding-top: 6px;
+  }
+
+  .second-container {
+    padding: 3px 10px 3px 10px;
+    margin: 0 7px auto 7px;
+  }
+
+  .content-container {
+    margin: 0.25rem;
+    padding: 15px 13px 15px 13px;
+  }
+
+  .view-title span {
+    font-size: 17px;
+    margin-left: 10px;
+  }
+
+  .field:nth-child(even) {
+    margin-top: 15px;
+  }
+
+  input,
+  textarea,
+  select {
+    margin-top: 5px;
+  }
+
+  select {
+    height: 44px;
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  textarea {
+    height: 80px;
+  }
+
+  .left-section {
+    margin-bottom: 10px;
+  }
+
+  .expo-buttons {
+    flex-direction: column;
+  }
+
+  .expo-buttons button {
+    width: 100%;
+  }
+
+  .expo-buttons button:nth-child(2) {
+    margin-top: 5px;
+  }
+}
