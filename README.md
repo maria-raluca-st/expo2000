@@ -1,27 +1,15 @@
 # Expo2000
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.6.
+Aplicatie ce permite inregistrarea galeriilor pe care utilizatorul doreste sa le viziteze.
 
-## Development server
+## Demo
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Demo here[www.google.com]
 
-## Code scaffolding
+## Cerinte
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. Sa aiba mai multe rute publice si private : Routing in app-routing.module.ts . Paginile de adaugare si vizualizare a galeriilor este disponibila doar pentru utilizatorii inregistrati (rute private) , iar paginile de login si signup sunt publice.
+2. Sa se foloseasca componente reutilizabile : navigation-bar este componenta reutilizata atat pe pagina de Add Expo, cat si pe All gallleries.
+3. Sa se comunice intre componente: Componenta reminder-alert este copil a componentelor all-expo-page si add-expo-page.
+4. Sa fie cel putin o pagina cu un form: login, signup, add expo contin form.
+5. Firebase sau orice alt mediu de backend: Firebase pentru autentificare si baza de date.
